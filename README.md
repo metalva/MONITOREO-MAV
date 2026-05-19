@@ -4,6 +4,8 @@
 
 Panel interactivo con autenticación para monitorear dos sistemas independientes de agua y presión, con alarmas visuales y manómetros digitales.
 
+🌐 **URL en vivo:** https://metalva.github.io/MONITOREO-MAV/
+
 ### Características
 
 ✨ **Funcionalidades principales:**
@@ -14,11 +16,10 @@ Panel interactivo con autenticación para monitorear dos sistemas independientes
 - 🔗 Visualización de URL accesible
 - 📋 Copiar URL al portapapeles
 
-### Cómo usar
+### Acceso rápido
 
-1. **Ejecutar el servidor local:**
-   - Haz doble clic en `iniciar_servidor.bat`
-   - Se abrirá el servidor en `http://localhost:8000`
+1. **Abre la página en vivo:**
+   - https://metalva.github.io/MONITOREO-MAV/
 
 2. **Iniciar sesión:**
    - Usuario: `mav`
@@ -34,9 +35,8 @@ Panel interactivo con autenticación para monitorear dos sistemas independientes
 ```
 MONITOREO-MAV/
 ├── index.html              # Página principal del panel
-├── iniciar_servidor.bat    # Script para iniciar servidor local
-├── mav-img.png            # Logo del sistema
-└── README.md              # Este archivo
+├── README.md              # Este archivo
+└── mav-img.png            # Logo del sistema
 ```
 
 ### Tecnologías utilizadas
@@ -45,7 +45,7 @@ MONITOREO-MAV/
 - **CSS3** - Estilos y animaciones
 - **JavaScript** - Lógica interactiva
 - **QRCode.js** - Generación de códigos QR
-- **Python** - Servidor web local
+- **GitHub Pages** - Hosting
 
 ### Credenciales por defecto
 

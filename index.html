@@ -17,6 +17,7 @@
             min-height: 100vh;
         }
         h2 { margin-bottom: 25px; color: #00d2ff; }
+        h3 { margin-bottom: 10px; }
         
         /* --- Estilos del Login --- */
         #login-contenedor {
@@ -30,11 +31,17 @@
             align-items: center;
             margin-top: 50px;
         }
-        #login-contenedor img {
+        #login-contenedor .logo {
             width: 80px;
             height: 80px;
             margin-bottom: 20px;
             border-radius: 50%;
+            background: linear-gradient(135deg, #00d2ff, #048004);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
         }
         .form-grupo {
             width: 100%;
@@ -52,6 +59,7 @@
             border: 1px solid #555;
             background: #413b3b;
             color: #fff;
+            font-size: 14px;
         }
         #mensaje-error {
             color: #ff3333;
@@ -63,7 +71,7 @@
 
         /* --- Panel de Control --- */
         #dashboard-contenedor {
-            display: none; /* Oculto hasta iniciar sesión */
+            display: none;
             flex-direction: column;
             align-items: center;
             width: 100%;
@@ -79,30 +87,123 @@
             flex-direction: column; 
             align-items: center; 
         }
+        
         /* --- Botones --- */
-        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px; transition: background 0.2s; }
-        .btn-login { background-color: #00d2ff; color: #048553; width: 100%; font-size: 16px; margin-top: 10px; }
+        .btn { 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 14px; 
+            transition: background 0.2s; 
+        }
+        .btn-login { 
+            background-color: #00d2ff; 
+            color: #048553; 
+            width: 100%; 
+            font-size: 16px; 
+            margin-top: 10px; 
+        }
         .btn-login:hover { background-color: #008ca6; }
-        .btn-toggle { background-color: #008cba; color: white; margin-bottom: 5px; }
+        .btn-toggle { 
+            background-color: #008cba; 
+            color: white; 
+            margin-bottom: 5px; 
+        }
         .btn-toggle:hover { background-color: #007399; }
-        .btn-aplicar { background-color: #4CAF50; color: white; }
+        .btn-aplicar { 
+            background-color: #4CAF50; 
+            color: white; 
+        }
         .btn-aplicar:hover { background-color: #45a049; }
 
         /* --- Luces Testigos --- */
-        .alarm-container { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
-        .indicador-luz { width: 70px; height: 70px; border-radius: 50%; background-color: #048004; box-shadow: inset 0 3px 8px rgba(255,255,255,0.3), 0 0 10px rgba(255, 255, 255, 0.5); margin-bottom: 15px; transition: background-color 0.3s, box-shadow 0.3s; }
-        .indicador-luz.rojo-on { background-color: #ff3333; box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #ff0000; }
-        .indicador-luz.verde-on { background-color: #0b7552fd; box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #00cc00; } 
+        .alarm-container { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin-bottom: 20px; 
+        }
+        .indicador-luz { 
+            width: 70px; 
+            height: 70px; 
+            border-radius: 50%; 
+            background-color: #048004; 
+            box-shadow: inset 0 3px 8px rgba(255,255,255,0.3), 0 0 10px rgba(255, 255, 255, 0.5); 
+            margin-bottom: 15px; 
+            transition: background-color 0.3s, box-shadow 0.3s; 
+        }
+        .indicador-luz.rojo-on { 
+            background-color: #ff3333; 
+            box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #ff0000; 
+        }
+        .indicador-luz.verde-on { 
+            background-color: #0b7552; 
+            box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #00cc00; 
+        } 
         
-        /* --- Manómetros Digitales --- */
-        .gauge-wrapper { position: relative; width: 200px; height: 120px; margin-bottom: 15px; }
-        .gauge-body { width: 200px; height: 100px; border-radius: 200px 200px 0 0; background: #08a2c9; overflow: hidden; position: relative; }
-        .gauge-fill { position: absolute; top: 0; left: 0; width: 200px; height: 100px; border-radius: 200px 200px 0 0; background: linear-gradient(to right, #131414, #030303); transform-origin: center bottom; transform: rotate(0deg); transition: transform 0.5s ease; }
-        .gauge-cover { width: 140px; height: 70px; border-radius: 140px 140px 0 0; background-color: #2d2d2d; position: absolute; bottom: 0; left: 30px; }
-        .gauge-text { position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 20px; font-weight: bold; color: #ddd; }
+        /* --- Manómetros --- */
+        .gauge-wrapper { 
+            position: relative; 
+            width: 200px; 
+            height: 120px; 
+            margin-bottom: 15px; 
+        }
+        .gauge-body { 
+            width: 200px; 
+            height: 100px; 
+            border-radius: 200px 200px 0 0; 
+            background: #08a2c9; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        .gauge-fill { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 200px; 
+            height: 100px; 
+            border-radius: 200px 200px 0 0; 
+            background: linear-gradient(to right, #131414, #030303); 
+            transform-origin: center bottom; 
+            transform: rotate(0deg); 
+            transition: transform 0.5s ease; 
+        }
+        .gauge-cover { 
+            width: 140px; 
+            height: 70px; 
+            border-radius: 140px 140px 0 0; 
+            background-color: #2d2d2d; 
+            position: absolute; 
+            bottom: 0; 
+            left: 30px; 
+        }
+        .gauge-text { 
+            position: absolute; 
+            bottom: 10px; 
+            width: 100%; 
+            text-align: center; 
+            font-size: 20px; 
+            font-weight: bold; 
+            color: #ddd; 
+        }
         
-        .control-grupo { display: flex; gap: 10px; align-items: center; }
-        input[type="number"] { width: 80px; padding: 5px; border-radius: 5px; border: 1px solid #555; background: #413b3b; color: #fff; text-align: center; }
+        .control-grupo { 
+            display: flex; 
+            gap: 10px; 
+            align-items: center; 
+        }
+        input[type="number"] { 
+            width: 80px; 
+            padding: 5px; 
+            border-radius: 5px; 
+            border: 1px solid #555; 
+            background: #413b3b; 
+            color: #fff; 
+            text-align: center; 
+        }
+        
         /* --- QR y URL --- */
         .qr-url-container {
             display: flex;
@@ -113,6 +214,8 @@
             padding: 20px 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .url-info {
             display: flex;
@@ -152,6 +255,14 @@
             background-color: white;
             padding: 10px;
             border-radius: 8px;
+            min-width: 220px;
+        }
+
+        hr {
+            width: 100%;
+            margin: 15px 0;
+            border: none;
+            border-top: 1px solid #444;
         }
     </style>
 </head>
@@ -159,7 +270,7 @@
 
     <!-- Formulario de Login -->
     <div id="login-contenedor">
-        <img src="mav-img.png" alt="Logo">
+        <div class="logo">MAV</div>
         <h2>Iniciar Sesión</h2>
         <div class="form-grupo">
             <label for="usuario">Usuario:</label>
@@ -173,7 +284,7 @@
         <button class="btn btn-login" onclick="validarLogin()">Ingresar</button>
     </div>
 
-    <!-- Panel de Control (Oculto hasta loguearse) -->
+    <!-- Panel de Control -->
     <div id="dashboard-contenedor">
         <h2>Panel de Monitoreo</h2>
         
@@ -188,16 +299,16 @@
         </div>
         
         <div class="dashboard">
-            <!-- Panel de Alarma y Manómetro 1 -->
+            <!-- Sistema 1 -->
             <div class="card">
                 <h3>Sistema 1</h3>
-                <hr style="width:100%; margin: 15px 0; border-color:#444;">
+                <hr>
                 <div class="alarm-container">
                     <div class="indicador-luz" id="luz-alarma-1"></div>
                     <span>Nivel de Agua Bajo</span>
                     <button class="btn btn-toggle" onclick="toggleAlarma(1)">Activar/Apagar Alarma</button>
                 </div>
-                <hr style="width:100%; margin: 15px 0; border-color:#444;">
+                <hr>
                 <div class="gauge-wrapper">
                     <div class="gauge-body">
                         <div class="gauge-fill" id="fill-1"></div>
@@ -211,16 +322,16 @@
                 </div>
             </div>
 
-            <!-- Panel de Alarma y Manómetro 2 -->
+            <!-- Sistema 2 -->
             <div class="card">
                 <h3>Sistema 2</h3>
-                <hr style="width:100%; margin: 15px 0; border-color:#444;">
+                <hr>
                 <div class="alarm-container">
                     <div class="indicador-luz" id="luz-alarma-2"></div>
                     <span>Nivel de Agua Bajo</span>
                     <button class="btn btn-toggle" onclick="toggleAlarma(2)">Activar/Apugar Alarma</button>
                 </div>
-                <hr style="width:100%; margin: 15px 0; border-color:#444;">
+                <hr>
                 <div class="gauge-wrapper">
                     <div class="gauge-body">
                         <div class="gauge-fill" id="fill-2"></div>
@@ -238,7 +349,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        // Lógica de Login
         function validarLogin() {
             const usuarioIngresado = document.getElementById('usuario').value;
             const claveIngresada = document.getElementById('clave').value;
@@ -252,15 +362,12 @@
             }
         }
 
-        // Generar QR y mostrar URL
         function generarQR() {
             const urlActual = window.location.href;
             document.getElementById('url-display').innerText = urlActual;
             
-            // Limpiar QR anterior si existe
             document.getElementById('qr-code').innerHTML = '';
             
-            // Generar nuevo QR
             new QRCode(document.getElementById('qr-code'), {
                 text: urlActual,
                 width: 200,
@@ -271,7 +378,6 @@
             });
         }
 
-        // Copiar URL al portapapeles
         function copiarURL() {
             const url = document.getElementById('url-display').innerText;
             navigator.clipboard.writeText(url).then(() => {
@@ -281,27 +387,22 @@
             });
         }
 
-        // Lógica de alarmas
         function toggleAlarma(numero) {
             const luz = document.getElementById(`luz-alarma-${numero}`);
             luz.classList.toggle('rojo-on');
         } 
 
-        // Lógica de manómetros
         function actualizarManometro(numero) {
             const inputVal = document.getElementById(`input-bar-${numero}`).value;
             const display = document.getElementById(`valor-display-${numero}`);
             
-            // Convertir a número y asegurar límites (0 a 10)
             let presion = parseFloat(inputVal);
             if (isNaN(presion)) presion = 0;
             if (presion < 0) presion = 0;
             if (presion > 10) presion = 10;
             
-            // Calcular la rotación (0 bar = 0 grados, 10 bar = 180 grados)
             const grados = presion * 18; 
             
-            // Actualizar la aguja y el texto
             if(numero === 1){
                 document.getElementById('fill-1').style.transform = `rotate(${grados}deg)`;
             } else {

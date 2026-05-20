@@ -17,131 +17,24 @@
             min-height: 100vh;
         }
         h2 { margin-bottom: 25px; color: #00d2ff; }
-        h3 { margin-bottom: 10px; }
-        
-        /* --- Pantalla de Login con fondo Verde Esmeralda y Control Remoto --- */
-        #login-screen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #048553 0%, #056d47 50%, #03503f 100%);
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        /* Ondas de radio animadas */
-        .radio-wave {
-            position: absolute;
-            border: 2px solid rgba(0, 210, 255, 0.3);
-            border-radius: 50%;
-            animation: expandWave 3s ease-out infinite;
-        }
-
-        .wave-1 { width: 60px; height: 60px; top: 20%; left: 15%; animation-delay: 0s; }
-        .wave-2 { width: 90px; height: 90px; top: 20%; left: 15%; animation-delay: 1s; }
-        .wave-3 { width: 120px; height: 120px; top: 20%; left: 15%; animation-delay: 2s; }
-
-        .wave-4 { width: 50px; height: 50px; bottom: 15%; right: 10%; animation-delay: 0.5s; }
-        .wave-5 { width: 80px; height: 80px; bottom: 15%; right: 10%; animation-delay: 1.5s; }
-        .wave-6 { width: 110px; height: 110px; bottom: 15%; right: 10%; animation-delay: 2.5s; }
-
-        @keyframes expandWave {
-            0% { 
-                transform: translate(-50%, -50%);
-                opacity: 1;
-                width: 60px;
-                height: 60px;
-            }
-            100% { 
-                transform: translate(-50%, -50%);
-                opacity: 0;
-                width: 200px;
-                height: 200px;
-            }
-        }
-
-        /* Microchips */
-        .microchip {
-            position: absolute;
-            font-size: 45px;
-            opacity: 0.15;
-        }
-        .microchip-1 { top: 10%; left: 10%; animation: rotate 15s linear infinite; }
-        .microchip-2 { top: 35%; right: 8%; animation: rotate 20s linear infinite reverse; }
-        .microchip-3 { bottom: 20%; left: 5%; animation: rotate 18s linear infinite; }
-        .microchip-4 { top: 60%; right: 15%; animation: rotate 22s linear infinite reverse; }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Conexiones de circuito */
-        .circuit-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.3), transparent);
-            opacity: 0.3;
-        }
-        .line-1 { width: 200px; height: 2px; top: 30%; left: 20%; }
-        .line-2 { width: 150px; height: 2px; bottom: 25%; right: 15%; }
-        .line-3 { width: 180px; height: 2px; top: 70%; left: 10%; }
-
-        /* WiFi/Señales */
-        .wifi-signal {
-            position: absolute;
-            font-size: 50px;
-            opacity: 0.12;
-        }
-        .wifi-1 { top: 15%; right: 20%; }
-        .wifi-2 { bottom: 30%; left: 25%; }
-
-        /* Puntos de tecnología */
-        .tech-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: rgba(0, 210, 255, 0.6);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        .dot-1 { top: 25%; left: 30%; animation-delay: 0s; }
-        .dot-2 { top: 50%; right: 20%; animation-delay: 0.5s; }
-        .dot-3 { bottom: 35%; left: 40%; animation-delay: 1s; }
-        .dot-4 { top: 65%; right: 30%; animation-delay: 1.5s; }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
-        }
         
         /* --- Estilos del Login --- */
         #login-contenedor {
-            background-color: rgba(5, 105, 58, 0.95);
+            background-color: #05693a;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.5);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
             width: 350px;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-top: 50px;
-            position: relative;
-            z-index: 10;
-            border: 1px solid rgba(0, 210, 255, 0.3);
         }
-        #login-contenedor .logo {
+        #login-contenedor img {
             width: 80px;
             height: 80px;
             margin-bottom: 20px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #00d2ff, #048004);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: bold;
         }
         .form-grupo {
             width: 100%;
@@ -159,7 +52,6 @@
             border: 1px solid #555;
             background: #413b3b;
             color: #fff;
-            font-size: 14px;
         }
         #mensaje-error {
             color: #ff3333;
@@ -171,7 +63,7 @@
 
         /* --- Panel de Control --- */
         #dashboard-contenedor {
-            display: none;
+            display: none; /* Oculto hasta iniciar sesión */
             flex-direction: column;
             align-items: center;
             width: 100%;
@@ -187,168 +79,87 @@
             flex-direction: column; 
             align-items: center; 
         }
-        
         /* --- Botones --- */
-        .btn { 
-            padding: 10px 20px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 14px; 
-            transition: background 0.2s; 
-        }
-        .btn-login { 
-            background-color: #00d2ff; 
-            color: #048553; 
-            width: 100%; 
-            font-size: 16px; 
-            margin-top: 10px; 
-        }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px; transition: background 0.2s; }
+        .btn-login { background-color: #00d2ff; color: #048553; width: 100%; font-size: 16px; margin-top: 10px; }
         .btn-login:hover { background-color: #008ca6; }
-        .btn-toggle { 
-            background-color: #008cba; 
-            color: white; 
-            margin-bottom: 5px; 
-        }
+        .btn-toggle { background-color: #008cba; color: white; margin-bottom: 5px; }
         .btn-toggle:hover { background-color: #007399; }
-        .btn-aplicar { 
-            background-color: #4CAF50; 
-            color: white; 
-        }
+        .btn-aplicar { background-color: #4CAF50; color: white; }
         .btn-aplicar:hover { background-color: #45a049; }
 
         /* --- Luces Testigos --- */
-        .alarm-container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            margin-bottom: 20px; 
-        }
-        .indicador-luz { 
-            width: 70px; 
-            height: 70px; 
-            border-radius: 50%; 
-            background-color: #048004; 
-            box-shadow: inset 0 3px 8px rgba(255,255,255,0.3), 0 0 10px rgba(255, 255, 255, 0.5); 
-            margin-bottom: 15px; 
-            transition: background-color 0.3s, box-shadow 0.3s; 
-        }
-        .indicador-luz.rojo-on { 
-            background-color: #ff3333; 
-            box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #ff0000; 
-        }
-        .indicador-luz.verde-on { 
-            background-color: #0b7552; 
-            box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #00cc00; 
-        } 
+        .alarm-container { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
+        .indicador-luz { width: 70px; height: 70px; border-radius: 50%; background-color: #048004; box-shadow: inset 0 3px 8px rgba(255,255,255,0.3), 0 0 10px rgba(255, 255, 255, 0.5); margin-bottom: 15px; transition: background-color 0.3s, box-shadow 0.3s; }
+        .indicador-luz.rojo-on { background-color: #ff3333; box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #ff0000; }
+        .indicador-luz.verde-on { background-color: #0b7552fd; box-shadow: inset 0 3px 8px rgba(255,255,255,0.4), 0 0 20px #00cc00; } 
         
-        /* --- Manómetros --- */
-        .gauge-wrapper { 
-            position: relative; 
-            width: 200px; 
-            height: 120px; 
-            margin-bottom: 15px; 
-        }
-        .gauge-body { 
-            width: 200px; 
-            height: 100px; 
-            border-radius: 200px 200px 0 0; 
-            background: #08a2c9; 
-            overflow: hidden; 
-            position: relative; 
-        }
-        .gauge-fill { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 200px; 
-            height: 100px; 
-            border-radius: 200px 200px 0 0; 
-            background: linear-gradient(to right, #131414, #030303); 
-            transform-origin: center bottom; 
-            transform: rotate(0deg); 
-            transition: transform 0.5s ease; 
-        }
-        .gauge-cover { 
-            width: 140px; 
-            height: 70px; 
-            border-radius: 140px 140px 0 0; 
-            background-color: #2d2d2d; 
-            position: absolute; 
-            bottom: 0; 
-            left: 30px; 
-        }
-        .gauge-text { 
-            position: absolute; 
-            bottom: 10px; 
-            width: 100%; 
-            text-align: center; 
-            font-size: 20px; 
-            font-weight: bold; 
-            color: #ddd; 
-        }
+        /* --- Manómetros Digitales --- */
+        .gauge-wrapper { position: relative; width: 200px; height: 120px; margin-bottom: 15px; }
+        .gauge-body { width: 200px; height: 100px; border-radius: 200px 200px 0 0; background: #08a2c9; overflow: hidden; position: relative; }
+        .gauge-fill { position: absolute; top: 0; left: 0; width: 200px; height: 100px; border-radius: 200px 200px 0 0; background: linear-gradient(to right, #131414, #030303); transform-origin: center bottom; transform: rotate(0deg); transition: transform 0.5s ease; }
+        .gauge-cover { width: 140px; height: 70px; border-radius: 140px 140px 0 0; background-color: #2d2d2d; position: absolute; bottom: 0; left: 30px; }
+        .gauge-text { position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 20px; font-weight: bold; color: #ddd; }
         
-        .control-grupo { 
-            display: flex; 
-            gap: 10px; 
-            align-items: center; 
+        .control-grupo { display: flex; gap: 10px; align-items: center; }
+        input[type="number"] { width: 80px; padding: 5px; border-radius: 5px; border: 1px solid #555; background: #413b3b; color: #fff; text-align: center; }
+        /* --- QR y URL --- */
+        .qr-url-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: #05693a;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
         }
-        input[type="number"] { 
-            width: 80px; 
-            padding: 5px; 
-            border-radius: 5px; 
-            border: 1px solid #555; 
-            background: #413b3b; 
-            color: #fff; 
-            text-align: center; 
+        .url-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-
-        hr {
-            width: 100%;
-            margin: 15px 0;
+        .url-label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #00d2ff;
+        }
+        .url-text {
+            background-color: #413b3b;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            word-break: break-all;
+            max-width: 400px;
+        }
+        .copy-btn {
+            background-color: #008cba;
+            color: white;
+            padding: 8px 15px;
             border: none;
-            border-top: 1px solid #444;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover {
+            background-color: #007399;
+        }
+        #qr-code {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Fondo de Login con tema de Control Remoto y Electrónica -->
-    <div id="login-screen">
-        <!-- Ondas de radio -->
-        <div class="radio-wave wave-1"></div>
-        <div class="radio-wave wave-2"></div>
-        <div class="radio-wave wave-3"></div>
-        <div class="radio-wave wave-4"></div>
-        <div class="radio-wave wave-5"></div>
-        <div class="radio-wave wave-6"></div>
-        
-        <!-- Microchips -->
-        <div class="microchip microchip-1">🔲</div>
-        <div class="microchip microchip-2">🔲</div>
-        <div class="microchip microchip-3">🔲</div>
-        <div class="microchip microchip-4">🔲</div>
-        
-        <!-- Líneas de circuito -->
-        <div class="circuit-line line-1"></div>
-        <div class="circuit-line line-2"></div>
-        <div class="circuit-line line-3"></div>
-        
-        <!-- Señales WiFi -->
-        <div class="wifi-signal wifi-1">📡</div>
-        <div class="wifi-signal wifi-2">📡</div>
-        
-        <!-- Puntos técnicos pulsantes -->
-        <div class="tech-dot dot-1"></div>
-        <div class="tech-dot dot-2"></div>
-        <div class="tech-dot dot-3"></div>
-        <div class="tech-dot dot-4"></div>
-    </div>
-
     <!-- Formulario de Login -->
     <div id="login-contenedor">
-        <div class="logo">MAV</div>
+        <img src="mav-img.png" alt="Logo">
         <h2>Iniciar Sesión</h2>
         <div class="form-grupo">
             <label for="usuario">Usuario:</label>
@@ -362,21 +173,23 @@
         <button class="btn btn-login" onclick="validarLogin()">Ingresar</button>
     </div>
 
-    <!-- Panel de Control -->
+    <!-- Panel de Control (Oculto hasta loguearse) -->
     <div id="dashboard-contenedor">
         <h2>Panel de Monitoreo</h2>
         
+
+        
         <div class="dashboard">
-            <!-- Sistema 1 -->
+            <!-- Panel de Alarma y Manómetro 1 -->
             <div class="card">
                 <h3>Sistema 1</h3>
-                <hr>
+                <hr style="width:100%; margin: 15px 0; border-color:#444;">
                 <div class="alarm-container">
                     <div class="indicador-luz" id="luz-alarma-1"></div>
                     <span>Nivel de Agua Bajo</span>
                     <button class="btn btn-toggle" onclick="toggleAlarma(1)">Activar/Apagar Alarma</button>
                 </div>
-                <hr>
+                <hr style="width:100%; margin: 15px 0; border-color:#444;">
                 <div class="gauge-wrapper">
                     <div class="gauge-body">
                         <div class="gauge-fill" id="fill-1"></div>
@@ -390,16 +203,16 @@
                 </div>
             </div>
 
-            <!-- Sistema 2 -->
+            <!-- Panel de Alarma y Manómetro 2 -->
             <div class="card">
                 <h3>Sistema 2</h3>
-                <hr>
+                <hr style="width:100%; margin: 15px 0; border-color:#444;">
                 <div class="alarm-container">
                     <div class="indicador-luz" id="luz-alarma-2"></div>
                     <span>Nivel de Agua Bajo</span>
                     <button class="btn btn-toggle" onclick="toggleAlarma(2)">Activar/Apugar Alarma</button>
                 </div>
-                <hr>
+                <hr style="width:100%; margin: 15px 0; border-color:#444;">
                 <div class="gauge-wrapper">
                     <div class="gauge-body">
                         <div class="gauge-fill" id="fill-2"></div>
@@ -415,25 +228,87 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
+        // Lógica de Login
         function validarLogin() {
-            const usuarioIngresado = document.getElementById('usuario').value;
-            const claveIngresada = document.getElementById('clave').value;
+            const usuarioIngresado = document.getElementById('usuario').value.trim();
+            const claveIngresada = document.getElementById('clave').value.trim();
+            const mensajeError = document.getElementById('mensaje-error');
             
-            if (usuarioIngresado === 'mav' && claveIngresada === '1234_mav') {
+            console.log('Usuario:', usuarioIngresado, 'Clave:', claveIngresada);
+            
+            if ((usuarioIngresado === 'mav' && claveIngresada === '1234_mav') || 
+                (usuarioIngresado === 'mantenimiento' && claveIngresada === '123_mav')) {
+                mensajeError.style.display = 'none';
                 document.getElementById('login-contenedor').style.display = 'none';
                 document.getElementById('dashboard-contenedor').style.display = 'flex';
-                document.getElementById('login-screen').style.display = 'none';
+                generarQR();
             } else {
-                document.getElementById('mensaje-error').style.display = 'block';
+                mensajeError.style.display = 'block';
+                console.log('Credenciales incorrectas');
             }
         }
 
+        // Event listener para Enter en los inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const usuarioInput = document.getElementById('usuario');
+            const claveInput = document.getElementById('clave');
+            
+            if (usuarioInput) {
+                usuarioInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        validarLogin();
+                    }
+                });
+            }
+            
+            if (claveInput) {
+                claveInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        validarLogin();
+                    }
+                });
+            }
+        });
+
+        // Generar QR y mostrar URL
+        function generarQR() {
+            const urlActual = window.location.href;
+            const qrContainer = document.getElementById('qr-code');
+            
+            if (qrContainer) {
+                qrContainer.innerHTML = '';
+                new QRCode(qrContainer, {
+                    text: urlActual,
+                    width: 200,
+                    height: 200,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        }
+
+        // Copiar URL al portapapeles
+        function copiarURL() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copiada al portapapeles');
+            }).catch(() => {
+                alert('No se pudo copiar la URL');
+            });
+        }
+
+        // Lógica de alarmas
         function toggleAlarma(numero) {
             const luz = document.getElementById(`luz-alarma-${numero}`);
             luz.classList.toggle('rojo-on');
         } 
 
+        // Lógica de manómetros
         function actualizarManometro(numero) {
             const inputVal = document.getElementById(`input-bar-${numero}`).value;
             const display = document.getElementById(`valor-display-${numero}`);

@@ -203,60 +203,6 @@
             color: #fff; 
             text-align: center; 
         }
-        
-        /* --- QR y URL --- */
-        .qr-url-container {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            margin-bottom: 30px;
-            background-color: #05693a;
-            padding: 20px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .url-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .url-label {
-            font-weight: bold;
-            font-size: 14px;
-            color: #00d2ff;
-        }
-        .url-text {
-            background-color: #413b3b;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #fff;
-            word-break: break-all;
-            max-width: 400px;
-        }
-        .copy-btn {
-            background-color: #008cba;
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 12px;
-            transition: background 0.2s;
-        }
-        .copy-btn:hover {
-            background-color: #007399;
-        }
-        #qr-code {
-            background-color: white;
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 220px;
-        }
 
         hr {
             width: 100%;
@@ -287,16 +233,6 @@
     <!-- Panel de Control -->
     <div id="dashboard-contenedor">
         <h2>Panel de Monitoreo</h2>
-        
-        <!-- QR y URL -->
-        <div class="qr-url-container" id="qr-url-section">
-            <div class="url-info">
-                <div class="url-label">URL de la Página:</div>
-                <div class="url-text" id="url-display"></div>
-                <button class="copy-btn" onclick="copiarURL()">Copiar URL</button>
-            </div>
-            <div id="qr-code"></div>
-        </div>
         
         <div class="dashboard">
             <!-- Sistema 1 -->
@@ -347,7 +283,6 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         function validarLogin() {
             const usuarioIngresado = document.getElementById('usuario').value;
@@ -356,35 +291,9 @@
             if (usuarioIngresado === 'mav' && claveIngresada === '1234_mav') {
                 document.getElementById('login-contenedor').style.display = 'none';
                 document.getElementById('dashboard-contenedor').style.display = 'flex';
-                generarQR();
             } else {
                 document.getElementById('mensaje-error').style.display = 'block';
             }
-        }
-
-        function generarQR() {
-            const urlActual = window.location.href;
-            document.getElementById('url-display').innerText = urlActual;
-            
-            document.getElementById('qr-code').innerHTML = '';
-            
-            new QRCode(document.getElementById('qr-code'), {
-                text: urlActual,
-                width: 200,
-                height: 200,
-                colorDark: '#000000',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        }
-
-        function copiarURL() {
-            const url = document.getElementById('url-display').innerText;
-            navigator.clipboard.writeText(url).then(() => {
-                alert('URL copiada al portapapeles');
-            }).catch(() => {
-                alert('No se pudo copiar la URL');
-            });
         }
 
         function toggleAlarma(numero) {

@@ -159,7 +159,7 @@
 
     <!-- Formulario de Login -->
     <div id="login-contenedor">
-        <img src="mav-img.png" alt="Logo">
+        <img src="mav-img.png" alt="Logo MAV">
         <h2>Iniciar Sesión</h2>
         <div class="form-grupo">
             <label for="usuario">Usuario:</label>
@@ -236,8 +236,6 @@
             const claveIngresada = document.getElementById('clave').value.trim();
             const mensajeError = document.getElementById('mensaje-error');
             
-            console.log('Usuario:', usuarioIngresado, 'Clave:', claveIngresada);
-            
             if ((usuarioIngresado === 'mav' && claveIngresada === '1234_mav') || 
                 (usuarioIngresado === 'mantenimiento' && claveIngresada === '123_mav')) {
                 mensajeError.style.display = 'none';
@@ -246,7 +244,6 @@
                 generarQR();
             } else {
                 mensajeError.style.display = 'block';
-                console.log('Credenciales incorrectas');
             }
         }
 

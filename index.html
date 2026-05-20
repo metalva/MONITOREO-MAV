@@ -19,58 +19,109 @@
         h2 { margin-bottom: 25px; color: #00d2ff; }
         h3 { margin-bottom: 10px; }
         
-        /* --- Pantalla de Login con fondo de Petróleo --- */
+        /* --- Pantalla de Login con fondo de Control Remoto --- */
         #login-screen {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a0a 50%, #0a0a0a 100%);
+            background: linear-gradient(135deg, #0a0e27 0%, #1a2540 50%, #0d1520 100%);
             overflow: hidden;
             z-index: -1;
         }
 
-        .oil-drop {
+        /* Ondas de radio animadas */
+        .radio-wave {
             position: absolute;
+            border: 2px solid rgba(0, 210, 255, 0.3);
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #333, #0a0a0a);
-            opacity: 0.3;
+            animation: expandWave 3s ease-out infinite;
         }
 
-        .oil-drop-1 { width: 200px; height: 200px; top: -50px; left: 10%; animation: float 6s ease-in-out infinite; }
-        .oil-drop-2 { width: 150px; height: 150px; top: 20%; right: 5%; animation: float 8s ease-in-out infinite 1s; }
-        .oil-drop-3 { width: 100px; height: 100px; bottom: 10%; left: 15%; animation: float 7s ease-in-out infinite 2s; }
-        .oil-drop-4 { width: 180px; height: 180px; top: 50%; right: 10%; animation: float 9s ease-in-out infinite 1.5s; }
+        .wave-1 { width: 60px; height: 60px; top: 20%; left: 15%; animation-delay: 0s; }
+        .wave-2 { width: 90px; height: 90px; top: 20%; left: 15%; animation-delay: 1s; }
+        .wave-3 { width: 120px; height: 120px; top: 20%; left: 15%; animation-delay: 2s; }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-30px) translateX(20px); }
+        .wave-4 { width: 50px; height: 50px; bottom: 15%; right: 10%; animation-delay: 0.5s; }
+        .wave-5 { width: 80px; height: 80px; bottom: 15%; right: 10%; animation-delay: 1.5s; }
+        .wave-6 { width: 110px; height: 110px; bottom: 15%; right: 10%; animation-delay: 2.5s; }
+
+        @keyframes expandWave {
+            0% { 
+                transform: translate(-50%, -50%);
+                opacity: 1;
+                width: 60px;
+                height: 60px;
+            }
+            100% { 
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                width: 200px;
+                height: 200px;
+            }
         }
 
-        .oil-derrick {
+        /* Microchips */
+        .microchip {
             position: absolute;
-            font-size: 60px;
+            font-size: 45px;
             opacity: 0.15;
         }
-        .oil-derrick-1 { top: 5%; left: 5%; }
-        .oil-derrick-2 { bottom: 10%; right: 8%; transform: rotate(15deg); }
-        .oil-derrick-3 { top: 40%; left: 10%; transform: rotate(-10deg); }
+        .microchip-1 { top: 10%; left: 10%; animation: rotate 15s linear infinite; }
+        .microchip-2 { top: 35%; right: 8%; animation: rotate 20s linear infinite reverse; }
+        .microchip-3 { bottom: 20%; left: 5%; animation: rotate 18s linear infinite; }
+        .microchip-4 { top: 60%; right: 15%; animation: rotate 22s linear infinite reverse; }
 
-        .oil-barrel {
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Conexiones de circuito */
+        .circuit-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.3), transparent);
+            opacity: 0.3;
+        }
+        .line-1 { width: 200px; height: 2px; top: 30%; left: 20%; }
+        .line-2 { width: 150px; height: 2px; bottom: 25%; right: 15%; }
+        .line-3 { width: 180px; height: 2px; top: 70%; left: 10%; }
+
+        /* WiFi/Señales */
+        .wifi-signal {
             position: absolute;
             font-size: 50px;
             opacity: 0.12;
         }
-        .oil-barrel-1 { top: 20%; right: 15%; }
-        .oil-barrel-2 { bottom: 30%; left: 20%; }
+        .wifi-1 { top: 15%; right: 20%; }
+        .wifi-2 { bottom: 30%; left: 25%; }
+
+        /* Puntos de tecnología */
+        .tech-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(0, 210, 255, 0.6);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .dot-1 { top: 25%; left: 30%; animation-delay: 0s; }
+        .dot-2 { top: 50%; right: 20%; animation-delay: 0.5s; }
+        .dot-3 { bottom: 35%; left: 40%; animation-delay: 1s; }
+        .dot-4 { top: 65%; right: 30%; animation-delay: 1.5s; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
         
         /* --- Estilos del Login --- */
         #login-contenedor {
             background-color: rgba(5, 105, 58, 0.95);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.5);
             width: 350px;
             display: flex;
             flex-direction: column;
@@ -78,6 +129,7 @@
             margin-top: 50px;
             position: relative;
             z-index: 10;
+            border: 1px solid rgba(0, 210, 255, 0.3);
         }
         #login-contenedor .logo {
             width: 80px;
@@ -262,19 +314,36 @@
 </head>
 <body>
 
-    <!-- Fondo de Login con tema de Petróleo -->
+    <!-- Fondo de Login con tema de Control Remoto y Electrónica -->
     <div id="login-screen">
-        <div class="oil-drop oil-drop-1"></div>
-        <div class="oil-drop oil-drop-2"></div>
-        <div class="oil-drop oil-drop-3"></div>
-        <div class="oil-drop oil-drop-4"></div>
+        <!-- Ondas de radio -->
+        <div class="radio-wave wave-1"></div>
+        <div class="radio-wave wave-2"></div>
+        <div class="radio-wave wave-3"></div>
+        <div class="radio-wave wave-4"></div>
+        <div class="radio-wave wave-5"></div>
+        <div class="radio-wave wave-6"></div>
         
-        <div class="oil-derrick oil-derrick-1">🛢️</div>
-        <div class="oil-derrick oil-derrick-2">🛢️</div>
-        <div class="oil-derrick oil-derrick-3">🛢️</div>
+        <!-- Microchips -->
+        <div class="microchip microchip-1">🔲</div>
+        <div class="microchip microchip-2">🔲</div>
+        <div class="microchip microchip-3">🔲</div>
+        <div class="microchip microchip-4">🔲</div>
         
-        <div class="oil-barrel oil-barrel-1">⛽</div>
-        <div class="oil-barrel oil-barrel-2">⛽</div>
+        <!-- Líneas de circuito -->
+        <div class="circuit-line line-1"></div>
+        <div class="circuit-line line-2"></div>
+        <div class="circuit-line line-3"></div>
+        
+        <!-- Señales WiFi -->
+        <div class="wifi-signal wifi-1">📡</div>
+        <div class="wifi-signal wifi-2">📡</div>
+        
+        <!-- Puntos técnicos pulsantes -->
+        <div class="tech-dot dot-1"></div>
+        <div class="tech-dot dot-2"></div>
+        <div class="tech-dot dot-3"></div>
+        <div class="tech-dot dot-4"></div>
     </div>
 
     <!-- Formulario de Login -->

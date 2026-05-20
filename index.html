@@ -19,9 +19,55 @@
         h2 { margin-bottom: 25px; color: #00d2ff; }
         h3 { margin-bottom: 10px; }
         
+        /* --- Pantalla de Login con fondo de Petróleo --- */
+        #login-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a0a 50%, #0a0a0a 100%);
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .oil-drop {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #333, #0a0a0a);
+            opacity: 0.3;
+        }
+
+        .oil-drop-1 { width: 200px; height: 200px; top: -50px; left: 10%; animation: float 6s ease-in-out infinite; }
+        .oil-drop-2 { width: 150px; height: 150px; top: 20%; right: 5%; animation: float 8s ease-in-out infinite 1s; }
+        .oil-drop-3 { width: 100px; height: 100px; bottom: 10%; left: 15%; animation: float 7s ease-in-out infinite 2s; }
+        .oil-drop-4 { width: 180px; height: 180px; top: 50%; right: 10%; animation: float 9s ease-in-out infinite 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .oil-derrick {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.15;
+        }
+        .oil-derrick-1 { top: 5%; left: 5%; }
+        .oil-derrick-2 { bottom: 10%; right: 8%; transform: rotate(15deg); }
+        .oil-derrick-3 { top: 40%; left: 10%; transform: rotate(-10deg); }
+
+        .oil-barrel {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0.12;
+        }
+        .oil-barrel-1 { top: 20%; right: 15%; }
+        .oil-barrel-2 { bottom: 30%; left: 20%; }
+        
         /* --- Estilos del Login --- */
         #login-contenedor {
-            background-color: #05693a;
+            background-color: rgba(5, 105, 58, 0.95);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
@@ -30,6 +76,8 @@
             flex-direction: column;
             align-items: center;
             margin-top: 50px;
+            position: relative;
+            z-index: 10;
         }
         #login-contenedor .logo {
             width: 80px;
@@ -214,6 +262,21 @@
 </head>
 <body>
 
+    <!-- Fondo de Login con tema de Petróleo -->
+    <div id="login-screen">
+        <div class="oil-drop oil-drop-1"></div>
+        <div class="oil-drop oil-drop-2"></div>
+        <div class="oil-drop oil-drop-3"></div>
+        <div class="oil-drop oil-drop-4"></div>
+        
+        <div class="oil-derrick oil-derrick-1">🛢️</div>
+        <div class="oil-derrick oil-derrick-2">🛢️</div>
+        <div class="oil-derrick oil-derrick-3">🛢️</div>
+        
+        <div class="oil-barrel oil-barrel-1">⛽</div>
+        <div class="oil-barrel oil-barrel-2">⛽</div>
+    </div>
+
     <!-- Formulario de Login -->
     <div id="login-contenedor">
         <div class="logo">MAV</div>
@@ -291,6 +354,7 @@
             if (usuarioIngresado === 'mav' && claveIngresada === '1234_mav') {
                 document.getElementById('login-contenedor').style.display = 'none';
                 document.getElementById('dashboard-contenedor').style.display = 'flex';
+                document.getElementById('login-screen').style.display = 'none';
             } else {
                 document.getElementById('mensaje-error').style.display = 'block';
             }
